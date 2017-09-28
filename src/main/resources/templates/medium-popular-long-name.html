@@ -1,12 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8"/>
-    <title>Popular</title>
+    <title>Not As Popular</title>
 </head>
 <body>
-    <h1>Medium Popular Long Name??</h1>
+    <h1>NAPMWLN (Not As Popular Movies With Long Names)</h1>
     <a href="/">Home</a>
     <a href="/now-playing">Now Playing</a>
+    <div>
+    <th:block th:each="movie : ${movies}">
+        <img width="300px" th:src="${movie.posterPath}"/>
+        <p th:text="${movie.title}"></p>
+    </th:block>
+
+    </div>
 </body>
 </html>
