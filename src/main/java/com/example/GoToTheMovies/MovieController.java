@@ -20,6 +20,7 @@ public class MovieController {
 
     @RequestMapping(path="/now-playing", method = RequestMethod.GET)
     public String nowPlaying(Model model) {
+
         String url = "https://api.themoviedb.org/3/movie/now_playing?api_key=be2a38521a7859c95e2d73c48786e4bb";
 
         model.addAttribute("movies", getMovies(url));
@@ -33,6 +34,7 @@ public class MovieController {
     }
 
     public static List<Movie> getMovies(String route) {
+
         RestTemplate restTemplate = new RestTemplate();
         ResultsPage movies = restTemplate.getForObject(route, ResultsPage.class);
 
